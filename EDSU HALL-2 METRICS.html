@@ -224,27 +224,27 @@ var channelsLoaded = 0;
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
 
-channelKeys.push({channelNumber:1599196, name:'VOLTAGE',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:1,axis:'V'}]});
+channelKeys.push({channelNumber:1599196, name:'Inside',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:1,axis:'T'}]});
 
-channelKeys.push({channelNumber:1599196, name:'POWER',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:2,axis:'W'}]});
+channelKeys.push({channelNumber:1599196, name:'OutSide',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:2,axis:'T'}]});
    
-channelKeys.push({channelNumber:1599196, name:'FREQUENCY',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:3,axis:'HZ'}]});
+channelKeys.push({channelNumber:1599196, name:'Attic',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:3,axis:'T'}]});
    
-channelKeys.push({channelNumber:1599196, name:'ENERGY',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:4,axis:'KW'}]});
+channelKeys.push({channelNumber:1599196, name:'Basement',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:4,axis:'T'}]});
    
-channelKeys.push({channelNumber:1599196, name:'CURRENT',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:5,axis:'A'}]});
+channelKeys.push({channelNumber:1599196, name:'Heating',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:5,axis:'T'}]});
 
-channelKeys.push({channelNumber:1599196, name:'POWER FACTOR',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:6,axis:' '}]});
-	    
+channelKeys.push({channelNumber:1599196, name:'Breaker Panel',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:5,axis:'T'}]});
+
 channelKeys.push({channelNumber:1599196, name:'Chicken House',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:1,axis:'T'}]}); 
-	    
+   fieldList:[{field:1,axis:'T'}]});
+    
 // user's timezone offset
 var myOffset = new Date().getTimezoneOffset();
 
@@ -507,9 +507,9 @@ $(document).ready(function()
 		}, 
 		yAxis: [{
             title: {
-                text: 'STATISTICS'
+                text: 'Degree Celsius'
             },
-            id: ''
+            id: 'T'
     },  {
 
     }],
@@ -655,11 +655,11 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 
 
   </script>
-    <title>SmartHome | EDSU HALL-2 METRICS</title>
+    <title>SmartHome | Temperature</title>
   </head>
   <body style="                      background-color: #000000; color: white;">
     <div id="chart-container"><br>
-      SmartHomeMetrics |  EDO STATE UNIVERSITY UZAIRUE, HALL-2 | Loading...<br>
+      SmartHomeMetrics | Berezan town, Ukraine | Loading...<br>
 	  <img src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" height="250" width="250">
     </div>
     <div id="below chart"> 
@@ -703,5 +703,4 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
     </div>
   </body>
 </html>
-
 
