@@ -8,18 +8,15 @@
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-32x32.png"/>
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-160x160.png"/>
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-192x192.png"/>
-   
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highstock/6.0.3/highstock.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highstock/6.0.3/modules/exporting.js"></script>
-   
+	
     <style>
 
-    
-    
-		 
       #buttonSSS {
         background-color:#004b5ef8;
         -moz-border-radius:6px;
@@ -98,12 +95,10 @@
 	
     <script type="text/javascript">
 	
+Highcharts.setOptions({
 
-	
-	Highcharts.setOptions({
-
-colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066', 
-   '#FFFF33', '#54e49e', '#2b908f', '#f45b5b', '#91e8e1'],
+colors: ['#ff0000', '#00695c', '#c62828', '#f7a35c', '#8085e9', 
+   '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
 
 
   chart: {
@@ -189,8 +184,7 @@ colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066',
 	
 	style: {
                 // color: '#039',
-                fontWeight: 'bold',
-
+                fontWeight: 'bold'
             }
 			},
 	 inputStyle: {
@@ -208,9 +202,6 @@ colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066',
   
   
 });
-
-
-
       
       // Webpage Javascript to chart multiple ThingSpeak channels on two axis with navigator, load historical data, and export cvs data.
       // Public Domain, by turgo.
@@ -224,26 +215,8 @@ var channelsLoaded = 0;
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
 
-channelKeys.push({channelNumber:1599196, name:'Inside',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:1,axis:'T'}]});
-
-channelKeys.push({channelNumber:1599196, name:'OutSide',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:2,axis:'T'}]});
-   
-channelKeys.push({channelNumber:1599196, name:'Attic',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:3,axis:'T'}]});
-   
-channelKeys.push({channelNumber:1599196, name:'Basement',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:4,axis:'T'}]});
-   
-channelKeys.push({channelNumber:1599196, name:'Heating',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:5,axis:'T'}]});
-
-channelKeys.push({channelNumber:1599196, name:'Breaker Panel',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:5,axis:'T'}]});
-
-channelKeys.push({channelNumber:1599196, name:'Chicken House',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:1,axis:'T'}]});
+channelKeys.push({channelNumber:1599196, name:'TEMPERATURE',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:7,axis:'T'}]});
     
 // user's timezone offset
 var myOffset = new Date().getTimezoneOffset();
@@ -268,8 +241,6 @@ function HideAll(){
   //});
             
 }
-
-
       
       //  This is where the chart is generated.
 $(document).ready(function() 
@@ -365,7 +336,7 @@ $(document).ready(function()
                (function(channelIndex)
                {
                 // get the data with a webservice call
-                $.getJSON('https://api.thingspeak.com/channels/'+channelKeys[channelIndex].channelNumber+'/feed/last.json?api_key='+channelKeys[channelIndex].key, function(data)  
+                $.getJSON('https://api.thingspeak.com/channels/'+channelKeys[channelIndex].channelNumber+'/feed/last.json?api_key='+channelKeys[channelIndex].key, function(data) 
                 { 
                   for (var fieldIndex=0; fieldIndex<channelKeys[channelIndex].fieldList.length; fieldIndex++)
                   {
@@ -408,7 +379,7 @@ $(document).ready(function()
 				}
 			}
 		},
-		rangeSelector: {
+rangeSelector: {
 			buttons: [ {
 				count: 1,
 				type: 'hour',
@@ -485,8 +456,8 @@ $(document).ready(function()
 			}
 		},
     tooltip: {
-      valueDecimals: 2,
-      valueSuffix: ' C',
+      valueDecimals: 1,
+      valueSuffix: 'V',
 
 			// reformat the tooltips so that local times are displayed
 			//formatter: function() {
@@ -500,24 +471,23 @@ $(document).ready(function()
       ordinal:false,
       min: Date.UTC(2013,02,28),
 			dateTimeLabelFormats : {
+
       },
       title: {
         text: 'test'
 			}
-		}, 
+		},
 		yAxis: [{
             title: {
-                text: 'Degree Celsius'
+                text: 'degree Celsius (°C)'
             },
             id: 'T'
-    },  {
-
+    }, {
     }],
-	
-	plotOptions: {          ////////////////////////////////////////////////HERE What I DID
+					    plotOptions: {          ////////////////////////////////////////////////HERE What I DID
         series: {
             threshold: null,
-			fillOpacity: 0.2
+			fillOpacity: 0.3
         }
     },                                      ////////////////////////////////////////////////////////////////
 		exporting: {
@@ -587,8 +557,6 @@ $(document).ready(function()
     )(channelIndex);
   }
  }
- 
- 
 });
       
 function loadOneChannel(){ 
@@ -617,7 +585,6 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
    window.console && console.log('earliest date:',end);
    window.console && console.log('sentChannelIndex:',sentChannelIndex);
    window.console && console.log('numLoads:',numLoads);
-   
    // get the Channel data with a webservice call
  	$.getJSON('https://api.thingspeak.com/channels/'+channelNumber+'/feed.json?callback=jQuery&amp;offset=0&amp;start=2013-01-20T00:00:00;end='+end+';key='+key, function(data) 
    {
@@ -653,13 +620,12 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	 });
 }
 
-
   </script>
     <title>SmartHome | Temperature</title>
   </head>
   <body style="                      background-color: #000000; color: white;">
     <div id="chart-container"><br>
-      SmartHomeMetrics | Berezan town, Ukraine | Loading...<br>
+      SmartHomeMetrics | EDO STATE UNIVERSITY UZAIRUE | Loading...<br>
 	  <img src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" height="250" width="250">
     </div>
     <div id="below chart"> 
@@ -703,5 +669,4 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
     </div>
   </body>
 </html>
-
 
