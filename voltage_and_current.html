@@ -12,9 +12,9 @@
 </script>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 
-    <meta name="description" content="Графік температури та атмосферного тиску в м. Березань прямо зараз, інформація оновлюється кожні 60 секунд">
-    <meta name="keywords" content="Температура , Місто березань, Атмосферний тиск, Березань, погода, зараз, Графік температури, Графік тиску">
-    <meta name="author" content="Сергій Базавлук">
+    <meta name="description" content="Voltage and Current">
+    <meta name="keywords" content=" Relationship">
+    <meta name="author" content="Wali">
 	<meta name="theme-color" content="#031b26" />
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-16x16.png"/>
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-96x96.png"/>
@@ -114,13 +114,13 @@ Highcharts.setOptions({
 
       lang: {
         shortMonths: [
-            'Січ.', 'Лют.', 'Берез.', 'Квіт.',
-            'Трав.', 'Черв.', 'Лип.', 'Серп.',
-            'Верес.', 'Жовт.', 'Листоп.', 'Груд.'
+            'Jan.', 'Feb.', 'Mar.', 'Apr.',
+            'May.', 'April.', 'May.', 'Jun.',
+            'Jul.', 'Aug..', 'Sept.', 'Nov.', 'Dec.'
         ],
         weekdays: [
-          'Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер',
-            'Пятниця', 'Субота'
+          'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+            'Saturday', 'Sunday'
         ]
     },
 
@@ -244,11 +244,11 @@ var channelsLoaded = 0;
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
 
-channelKeys.push({channelNumber:300978, name:'Тиск',key:'UAYSQJX8RLH1XLKV',
-   fieldList:[{field:7,axis:'P'}]});
+channelKeys.push({channelNumber:1599196, name:'VOLTAGE',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:1,axis:'V'}]});
    
-channelKeys.push({channelNumber:300978, name:'Температура',key:'UAYSQJX8RLH1XLKV',
-   fieldList:[{field:2,axis:'T'}]});
+channelKeys.push({channelNumber:1599196, name:'CURRENT',key:'LTUUDL5ELMRK5MPT',
+   fieldList:[{field:5,axis:'A'}]});
 
    
 
@@ -338,11 +338,11 @@ $(document).ready(function()
        //fieldList[fieldIndex].name = eval("data.channel.field"+fieldList[fieldIndex].field);
 
        // rename
-       if(fieldList[fieldIndex].field==2){
-        fieldList[fieldIndex].name = "Температура | °С";
+       if(fieldList[fieldIndex].field==1){
+        fieldList[fieldIndex].name = "VOLTAGE | V";
        }
-       if(fieldList[fieldIndex].field==7){
-        fieldList[fieldIndex].name = "Тиск | mmHg"; 
+       if(fieldList[fieldIndex].field==5){
+        fieldList[fieldIndex].name = "CURRENT | A"; 
       }
 
 	   }
@@ -683,7 +683,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
   </head>
   <body style="                      background-color: #000000; color: white;">
     <div id="chart-container"><br>
-      Березань - МетеоІнфо | Завантажую...<br>
+      SmartHomeMetrics | EDO STATE UNIVERSITY UZAIRUE, | Loading...<br>
 	  <img src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" height="250" width="250">
     </div>
     <div id="below chart"> 
@@ -720,7 +720,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
         <option value="50">50 Loads</option>
       </select>
 	  
-      <span id="Latency" style="font-family: Lucida Grande;"></span> <button id= "buttonSSS" onclick="location.href='https://electrical-pro.github.io/epro/berezan.html'"> >> Перейти на сайт 'Березань МетеоІнфо' << </a></button><span style="font-family: Lucida Grande;"> Увімкнути Автооновлення:</span><input id="Update" name="Update" type="checkbox" checked>
+      <span id="Latency" style="font-family: Lucida Grande;"></span> <button id= "buttonSSS" onclick="location.href='https://oz-786.github.io/oz-energy/'"> >> Main Menu' << </a></button><span style="font-family: Lucida Grande;"> Увімкнути Автооновлення:</span><input id="Update" name="Update" type="checkbox" checked>
     </div>
   </body>
 </html>
