@@ -531,7 +531,7 @@ rangeSelector: {
 		yAxis: [ {
 	
             title: {
-                text: 'Температура | °C'
+                text: 'Voltage | v'
 
             },
             
@@ -542,7 +542,7 @@ rangeSelector: {
 		
     title: {
 
-        text: 'Тиск | mmHg',
+        text: 'Current | A',
 
     },
     id: 'P',
@@ -679,7 +679,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 }
 
   </script>
-    <title>Графік температури та тиску в місті Березань | МетеоІнфо </title>
+    <title>SmartHome | Voltage & Current </title>
   </head>
   <body style="                      background-color: #000000; color: white;">
     <div id="chart-container"><br>
@@ -691,14 +691,14 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	<button id="buttonSSS" style="width: 89px; margin-top: -18px;" value="Hide All"
 	
         name="Hide All Button"
-        onclick="HideAll();">Сховати все</button>
+        onclick="HideAll();">Hide All</button>
 		
 		<a> </a>
 		
 		
 		<button id="buttonLoad" style="width: 182px; margin-top: -18px;" value="Load More Data"
         name="Load More Data"
-        onclick="loadOneChannel();">Завантажити більше даних</button>
+        onclick="loadOneChannel();">Download More Data</button>
       <select  class="buttt" id="Channel Select" >
       </select>
       <select id="Loads">
