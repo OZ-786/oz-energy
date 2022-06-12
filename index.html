@@ -20,7 +20,7 @@
 $(document).ready(function() {
 	getUpdates();
 	// check for new updates
-	setInterval('getUpdates()',60000);
+	setInterval('getUpdates()',6000);
 
 	setInterval('liveTimerUpdtFun()',1000);
 });
@@ -114,7 +114,7 @@ function liveTimerUpdtFun() {
 	 }
 	 // data freshness info
 	 if(Freshness<=timepass){
-	 $("#IsDataFresh").html("Last data upload: less than 1 min ago").css("fontSize", 15);
+	 $("#IsDataFresh").html("Last data upload: less than 10 sec. ago").css("fontSize", 15);
 	 }else{
      $("#IsDataFresh").html("Last data upload: " + Math.round(Freshness) + " Sec ago").css("fontSize", 15);
 	 }
@@ -215,7 +215,7 @@ function liveTimerUpdtFun() {
 
 	<span id="data">
 	<hr >
-	<h3 align="center"> ThingSpeak Live Charts</h3>
+	<h3 align="center"> Live Charts From Meter</h3>
 	<hr >
 
 
@@ -246,7 +246,7 @@ function liveTimerUpdtFun() {
 	<span id="dataLive" >
 
 	<hr>
-	<h3  align="center"> ThingSpeak Live data (right now)</h3>
+	<h3  align="center"> Live data (right now)</h3>
    <hr>
 
 	<li> VOLTAGE: <span id="field1" > --- </span> V </li>
