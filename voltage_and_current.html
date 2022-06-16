@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head> 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130701452-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-130701452-1');
-</script>
+  <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-
-    <meta name="description" content="Voltage and Current">
-    <meta name="keywords" content=" Relationship">
-    <meta name="author" content="Wali">
 	<meta name="theme-color" content="#031b26" />
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-16x16.png"/>
 	<link rel="shortcut icon" type="image/png" href="https://www.highcharts.com/images/ico/favicon-96x96.png"/>
@@ -26,103 +13,92 @@
 
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highstock/6.0.3/highstock.js"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highstock/6.0.3/modules/exporting.js"></script>
+	
+    <style>
 
-
-	<style>
+    
     
 		 
-#buttonSSS {
-	background-color:#004b5ef8;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	padding:3px ;
-	color:#ffffff;
-	border:0px;
-	outline: none;
-	
-	}
-	
-#buttonSSS:hover {
-	background-color:#0081a1f8;
-}
+      #buttonSSS {
+        background-color:#004b5ef8;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        padding:3px ;
+        color:#ffffff;
+        border:0px;
+        outline: none;
+        
+        }
+        
+      #buttonSSS:hover {
+        background-color:#0081a1f8;
+      }
+      
+      #buttonSSS:active {
+        background-color: #003495;
+        box-shadow: 0 1px #666;
+        transform: translateY(1px);
+      }
+      
+      
+      #buttonLoad {
+        background-color:#691335;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        padding:3px ;
+        color:#ffffff;
+        border:0px;
+        outline: none;
+        
+      }
+      
+      #buttonLoad:hover {
+        background-color:#c20f42;
+      }
+      
+      #buttonLoad:active {
+        background-color: #870117;
+        box-shadow: 0 1px #666;
+        transform: translateY(1px);
+      }
+      
+      .buttt {
+        background-color:#004b5ef8;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        color:#ffffff;
+        padding:2px ;
+        border:0px;
+        outline: none;
+        
+      
+      }
+      
+      #Loads {
+        background-color:#004b5ef8;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        color:#ffffff;
+        padding:2px ;
+        border:0px;
+        outline: none;
+        
+      
+      }
 
-#buttonSSS:active {
-  background-color: #003495;
-  box-shadow: 0 1px #666;
-  transform: translateY(1px);
-}
-
-
-#buttonLoad {
-	background-color:#691335;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	padding:3px ;
-	color:#ffffff;
-	border:0px;
-	outline: none;
-	
-}
-
-#buttonLoad:hover {
-	background-color:#c20f42;
-}
-
-#buttonLoad:active {
-  background-color: #870117;
-  box-shadow: 0 1px #666;
-  transform: translateY(1px);
-}
-
-.buttt {
-	background-color:#004b5ef8;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	color:#ffffff;
-	padding:2px ;
-	border:0px;
-	outline: none;
-	
-
-}
-
-#Loads {
-	background-color:#004b5ef8;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	color:#ffffff;
-	padding:2px ;
-	border:0px;
-	outline: none;
-	
-
-}
-
-#chart-container{
+      #chart-container{
         height: 95vh
-}
-  </style>
+      }
+        </style>
 	
     <script type="text/javascript">
 	
 Highcharts.setOptions({
-
-      lang: {
-        shortMonths: [
-            'Jan.', 'Feb.', 'Mar.', 'Apr.',
-            'May.', 'April.', 'May.', 'Jun.',
-            'Jul.', 'Aug..', 'Sept.', 'Nov.', 'Dec.'
-        ],
-        weekdays: [
-          'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-            'Saturday', 'Sunday'
-        ]
-    },
 
 colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066', 
    '#FFFF33', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
@@ -140,7 +116,6 @@ colors: ['#3366ff',  '#ff0000', '#f4740b', '#ff0066',
      },
      polar: true,
      type: 'area',
-	
 	 
 	 
 	 
@@ -245,13 +220,11 @@ var channelsLoaded = 0;
 var channelKeys =[];
 
 channelKeys.push({channelNumber:1599196, name:'VOLTAGE',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:1,axis:'V'}]});
+   fieldList:[{field:1,axis:'v'}]});
    
 channelKeys.push({channelNumber:1599196, name:'CURRENT',key:'LTUUDL5ELMRK5MPT',
-   fieldList:[{field:5,axis:'A'}]});
-
-   
-
+   fieldList:[{field:2,axis:'A'}]});
+    
 // user's timezone offset
 var myOffset = new Date().getTimezoneOffset();
 
@@ -260,7 +233,6 @@ function getChartDate(d) {
     // get the data using javascript's date object (year, month, day, hour, minute, second)
     // months in javascript start at 0, so remember to subtract 1 when specifying the month
     // offset in minutes is converted to milliseconds and subtracted so that chart's x-axis is correct
-
     return Date.UTC(d.substring(0,4), d.substring(5,7)-1, d.substring(8,10), d.substring(11,13), d.substring(14,16), d.substring(17,19)) - (myOffset * 60000);
 }
 
@@ -335,16 +307,7 @@ $(document).ready(function()
 	 	  	// if a numerical value exists add it
 	   		if (!isNaN(parseInt(v))) { fieldList[fieldIndex].data.push(p); }
        }
-       //fieldList[fieldIndex].name = eval("data.channel.field"+fieldList[fieldIndex].field);
-
-       // rename
-       if(fieldList[fieldIndex].field==1){
-        fieldList[fieldIndex].name = "VOLTAGE | V";
-       }
-       if(fieldList[fieldIndex].field==5){
-        fieldList[fieldIndex].name = "CURRENT | A"; 
-      }
-
+       fieldList[fieldIndex].name = eval("data.channel.field"+fieldList[fieldIndex].field);
 	   }
      window.console && console.log('getJSON field name:',fieldList[0].name);
      channelKeys[channelIndex].fieldList=fieldList;
@@ -384,10 +347,6 @@ $(document).ready(function()
                 { 
                   for (var fieldIndex=0; fieldIndex<channelKeys[channelIndex].fieldList.length; fieldIndex++)
                   {
-
- 
-
-
                     // if data exists
                     var fieldStr = "data.field"+channelKeys[channelIndex].fieldList[fieldIndex].field;
                     var chartSeriesIndex=channelKeys[channelIndex].fieldList[fieldIndex].series;
@@ -528,28 +487,26 @@ rangeSelector: {
 			}
 		},
 		
-		yAxis: [ {
+		yAxis: [{
+		
+            title: {
+
+                text: 'Pressure / mmHg'
+				
+            },
+            id: 'P',
+            showEmpty: false,
+
+    }, {
 	
             title: {
-                text: 'Voltage | v'
+                text: 'Temp / C'
 
             },
             
             id: 'T',
             showEmpty: false,
-    },
-    {
-		
-    title: {
-
-        text: 'Current | A',
-
-    },
-    id: 'P',
-    showEmpty: false,
-
-},
- {
+    }, {
     }],
 					    plotOptions: {          ////////////////////////////////////////////////HERE What I DID
         series: {
@@ -557,11 +514,20 @@ rangeSelector: {
 			fillOpacity: 0.3
         }
     },                                      ////////////////////////////////////////////////////////////////
+		exporting: {
+		  enabled: true,
+      csv: {
+        dateFormat: '%d/%m/%Y %I:%M:%S %p'
+        }
+		},
 		legend: {
 		  enabled: true
 		},
     navigator: {
-      baseSeries: 0  //select which series to show in history navigator, First series is 0
+      baseSeries: 0,  //select which series to show in history navigator, First series is 0
+      series: {
+            includeInCSVExport: false
+        }
 		},    
     series: []
     //series: [{data:[[getChartDate("2013-06-16T00:32:40Z"),75]]}]      
@@ -679,11 +645,11 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 }
 
   </script>
-    <title>SmartHome | Voltage & Current </title>
+    <title>SmartHome | Pressure and Temperature</title>
   </head>
   <body style="                      background-color: #000000; color: white;">
     <div id="chart-container"><br>
-      SmartHomeMetrics | EDO STATE UNIVERSITY UZAIRUE, | Loading...<br>
+      SmartHomeMetrics | Berezan town, Ukraine | Loading...<br>
 	  <img src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" height="250" width="250">
     </div>
     <div id="below chart"> 
@@ -691,14 +657,16 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	<button id="buttonSSS" style="width: 89px; margin-top: -18px;" value="Hide All"
 	
         name="Hide All Button"
-        onclick="HideAll();">Hide All</button>
+        onclick="HideAll();">Hide
+        All</button>
 		
 		<a> </a>
 		
 		
 		<button id="buttonLoad" style="width: 182px; margin-top: -18px;" value="Load More Data"
         name="Load More Data"
-        onclick="loadOneChannel();">Download More Data</button>
+        onclick="loadOneChannel();">Load
+        More Historical Data </button>
       <select  class="buttt" id="Channel Select" >
       </select>
       <select id="Loads">
@@ -720,7 +688,8 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
         <option value="50">50 Loads</option>
       </select>
 	  
-      <span id="Latency" style="font-family: Lucida Grande;"></span> <button id= "buttonSSS" onclick="location.href='https://oz-786.github.io/oz-energy/'"> >> Main Menu' << </a></button><span style="font-family: Lucida Grande;"> Увімкнути Автооновлення:</span><input id="Update" name="Update" type="checkbox" checked>
+      <input id="Update" name="Update" type="checkbox" checked><span style="font-family: Lucida Grande;">Update
+        Chart</span> <span id="Latency" style="font-family: Lucida Grande;">(Latency)</span>
     </div>
   </body>
 </html>
